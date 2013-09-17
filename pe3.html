@@ -1,0 +1,65 @@
+
+<html>
+<head>
+	<title>Javascript Bare</title>
+</head>
+<body>
+
+  <script type="text/javascript"> 
+
+  var Electronic = function (type) {
+  	this.type = type;
+  	this.active = false;
+  	
+  };
+
+	Electronic.prototype.switch = function(boolean) {
+		this.active = boolean;
+	};
+  
+
+  var Phone = function (name) {
+  	this.name = name;
+  	Electronic.call(this, 'phone');
+  };
+
+  Phone.prototype = new Electronic();
+
+  Phone.prototype.ring = function () {
+  	return 'Ring Ring!';
+  };
+
+
+  var Nexus = function (owner) {
+  	Phone.call(this, "Nexus");
+  	this.owner = owner;
+
+  };
+
+  Nexus.prototype = new Phone();
+
+
+  // var Person = function (name) {
+  // this.name = name;
+  //   this.network = [];
+  // };
+
+  // Person.prototype.meet = function (otherPerson) {
+  //   this.network.push(otherPerson);
+  //   otherPerson.network.push(this);
+  // };
+
+  // Person.prototype.inNetwork = function (otherPerson) {
+  //   for (var i = 0; i < this.network.length; i += 1) {
+  //     if (this.network[i].name === otherPerson.name) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // };
+    
+
+  </script>
+
+</body>
+</html>
